@@ -6,7 +6,7 @@ const getApiData = () => {
           return {
             /* Pintar al inicio */
             poster: film.poster,
-            title: film.movie,
+            name: film.movie,
             year: film.year,
             quote: film.full_line,
             /* Extra para pintar en detalle */

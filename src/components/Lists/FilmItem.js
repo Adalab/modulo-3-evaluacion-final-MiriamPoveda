@@ -6,7 +6,7 @@ function FilmItem(props) {
         alt={props.oneFilm.title}
         src={props.oneFilm.poster}
         />
-        <p>{props.oneFilm.title} - {props.oneFilm.year}</p>
+        <p>{props.oneFilm.name} - {props.oneFilm.year}</p>
         <p>{props.oneFilm.quote}</p>
       </>
   );
