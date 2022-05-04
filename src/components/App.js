@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 // Services //
 import getApiData from '../services/Api';
 // Components //
-import FilmList from './FilmList';
+import FilmList from './Lists/FilmList';
 // Styles //
 import '../styles/App.scss';
 
