@@ -2,6 +2,8 @@
 import {useState, useEffect} from 'react';
 // Services //
 import getApiData from '../services/Api';
+// Components //
+import FilmList from './FilmList';
 // Styles //
 import '../styles/App.scss';
 
@@ -29,8 +31,11 @@ function App() {
   return (
     <>
       <header>
-      <h1>Arrancando...</h1>
+      <h1>Owen Wilson's WOW</h1>
       </header>
+      <main>
+        <FilmList films={dataFilms}/>
+      </main>
     </>
   );
 }
