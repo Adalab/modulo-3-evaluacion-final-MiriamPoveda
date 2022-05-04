@@ -1,20 +1,11 @@
-function Filters(props) {
+import FilterFilm from './FilterFilm';
 
-    const handleChange = (ev) => {
-        props.handleFilterFilm(ev.target.value);
-    }
+function Filters(props) {
 
   return (
     <section>
       <form>
-          <label htmlFor="searchFilm">Movie</label>
-          <input 
-          type="text"
-          placeholder="Write the name of the film"
-          name="searchFilm"
-          value={props.filteredFilm}
-          onChange={handleChange}
-          />
+          <FilterFilm handleFilterFilm={props.handleFilterFilm}/>
       </form>
     </section>
   );
