@@ -1,6 +1,12 @@
+import {Link} from 'react-router-dom';
+
 function MovieSceneDetail(props) {
+
     return (
         <section>
+        <div>
+          <Link to="/">Back</Link>
+          </div>
         <img
           className="filmPoster" 
           alt={props.oneFilm.name}

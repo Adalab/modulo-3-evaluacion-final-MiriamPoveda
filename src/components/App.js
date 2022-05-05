@@ -69,6 +69,19 @@ function App() {
     ev.preventDefault();
   };
 
+  /* Mensaje para película incorrecta */
+  const incorrectName = () => {
+    if (filteredFilm !== '' && allFilters.length === 0) {
+      return (
+        <div>
+            <p>
+              Wow! Owen isn't familiar with the film "{filteredFilm}". Try another name.
+            </p>
+        </div>
+      );
+    } 
+  };
+
   // matchPath + useLocation //
 
   const {pathname} = useLocation();
@@ -97,6 +110,7 @@ function App() {
         handleFilterYear={handleFilterYear}
         getYears={getYears()}
         />
+        {incorrectName()}
         <MovieSceneList
         films={allFilters}
         />
