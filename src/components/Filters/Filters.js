@@ -5,7 +5,7 @@ function Filters(props) {
 
   return (
     <section>
-      <form>
+      <form onSubmit={props.handleRecharge}>
           <FilterMovie handleFilterFilm={props.handleFilterFilm}/>
           <FilterYear 
           getYears={props.getYears}

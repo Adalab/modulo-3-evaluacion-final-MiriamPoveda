@@ -64,6 +64,11 @@ function App() {
     return uniqueYears;
   }
 
+  /* Prevenir la recarga */
+  const handleRecharge = (ev) => {
+    ev.preventDefault();
+  };
+
   // matchPath + useLocation //
 
   const {pathname} = useLocation();
@@ -87,6 +92,7 @@ function App() {
           element={
             <>
               <Filters
+        handleRecharge={handleRecharge}
         handleFilterFilm={handleFilterFilm}
         handleFilterYear={handleFilterYear}
         getYears={getYears()}
