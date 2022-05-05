@@ -1,10 +1,13 @@
 // Hooks //
 import {useState, useEffect} from 'react';
+import {Routes, Route} from 'react-router-dom';
+import {matchPath, useLocation} from 'react-router-dom';
 // Services //
 import getApiData from '../services/Api';
 // Components //
 import MovieSceneList from './Lists/MovieSceneList';
 import Filters from './Filters/Filters';
+import MovieSceneDetail from './Lists/MovieSceneDetail';
 // Styles //
 import '../styles/App.scss';
 
@@ -61,6 +64,14 @@ function App() {
     return uniqueYears;
   }
 
+  // matchPath + useLocation //
+
+  const {pathname} = useLocation();
+  const dataPath = matchPath('/movie/:movieId', pathname);
+
+  const movieId = dataPath !== null ? dataPath.params.movieId : null;
+  const movieFound = dataFilms.find((oneMovie) => oneMovie.id === movieId);
+
   // HTML //
 
   return (
@@ -69,7 +80,13 @@ function App() {
       <h1>Owen Wilson's WOW</h1>
       </header>
       <main>
-        <Filters
+        <Routes>
+          {/* Static route */}
+          <Route 
+          path="/"
+          element={
+            <>
+              <Filters
         handleFilterFilm={handleFilterFilm}
         handleFilterYear={handleFilterYear}
         getYears={getYears()}
@@ -77,6 +94,17 @@ function App() {
         <MovieSceneList
         films={allFilters}
         />
+        </>}
+          />
+          {/* Variable route */}
+          <Route
+            path="/movie/:movieId"
+            element={<MovieSceneDetail 
+            oneFilm={movieFound}
+            />}
+          />
+        </Routes>
+        
       </main>
     </>
   );
