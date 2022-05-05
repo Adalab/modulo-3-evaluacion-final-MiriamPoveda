@@ -1,4 +1,4 @@
-function FilterFilm(props) {
+function FilterMovie(props) {
     
     const handleChange = (ev) => {
         props.handleFilterFilm(ev.target.value);
@@ -18,5 +18,5 @@ function FilterFilm(props) {
     );
   }
   
-  export default FilterFilm;
+  export default FilterMovie;
   

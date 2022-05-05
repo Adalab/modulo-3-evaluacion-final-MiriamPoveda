@@ -1,10 +1,10 @@
-import FilmItem from '../Lists/FilmItem';
+import MovieSceneItem from './MovieSceneItem';
 
-function FilmList(props) {
+function MovieSceneList(props) {
   const allFilms = props.films.map((oneFilm, index) => {
     return (
       <li key={index}>
-        <FilmItem oneFilm={oneFilm}/>
+        <MovieSceneItem oneFilm={oneFilm}/>
       </li>
     );
   });
@@ -14,4 +14,4 @@ function FilmList(props) {
     </section>
   );
 }
-export default FilmList;
+export default MovieSceneList;

@@ -3,7 +3,7 @@ import {useState, useEffect} from 'react';
 // Services //
 import getApiData from '../services/Api';
 // Components //
-import FilmList from './Lists/FilmList';
+import MovieSceneList from './Lists/MovieSceneList';
 import Filters from './Filters/Filters';
 // Styles //
 import '../styles/App.scss';
@@ -74,7 +74,7 @@ function App() {
         handleFilterYear={handleFilterYear}
         getYears={getYears()}
         />
-        <FilmList 
+        <MovieSceneList
         films={allFilters}
         />
       </main>

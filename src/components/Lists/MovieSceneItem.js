@@ -1,9 +1,9 @@
-function FilmItem(props) {
+function MovieSceneItem(props) {
   return (
       <>
       <img
         className="filmPoster" 
-        alt={props.oneFilm.title}
+        alt={props.oneFilm.name}
         src={props.oneFilm.poster}
         />
         <p>{props.oneFilm.name} - {props.oneFilm.year}</p>
@@ -11,4 +11,4 @@ function FilmItem(props) {
       </>
   );
 }
-export default FilmItem;
+export default MovieSceneItem;
