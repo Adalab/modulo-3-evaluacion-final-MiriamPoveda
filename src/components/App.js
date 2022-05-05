@@ -16,6 +16,8 @@ function App() {
   const [dataFilms, setDataFilms] = useState([]);
   /* Filtrar por película */
   const [filteredFilm, setFilteredFilm] = useState('');
+  /* Filtrar por año */
+  const [filteredYear, setFilteredYear] = useState('');
 
   // useEffect //
 
@@ -28,14 +30,36 @@ function App() {
 
   // Funciones //
 
-  /* Filtrar por película */
+  /* Filtro global */
+  const allFilters = dataFilms
+  /* Filtro por película */
+  .filter((eachFilm) => {
+    return eachFilm.name.toLowerCase().includes(filteredFilm.toLowerCase());
+  })
+  /* Filtro por año */
+  .filter((eachYear) => {
+    return filteredYear === '' ? true
+    : parseInt(eachYear.year) === parseInt(filteredYear);
+  })
+
+  /* Herramienta para filtrar película */
   const handleFilterFilm = (value) => {
     setFilteredFilm(value);
   }
-  /* Filtrar por película */
-  const filterFilm = dataFilms.filter((eachFilm) => {
-    return eachFilm.name.toLowerCase().includes(filteredFilm.toLowerCase());
-  });
+
+  /* Herramienta para filtrar año */
+  const handleFilterYear = (value) => {
+      setFilteredYear(value);
+  }
+
+   /* Evitar repetir años */
+   const getYears = () => {
+    const allYears = dataFilms.map((oneYear) => oneYear.year);
+    const uniqueYears = allYears.filter((item, index) => { 
+      return allYears.indexOf(item) === index;
+    });
+    return uniqueYears;
+  }
 
   // HTML //
 
@@ -46,10 +70,12 @@ function App() {
       </header>
       <main>
         <Filters
-        filteredFilm={filteredFilm} 
-        handleFilterFilm={handleFilterFilm}/>
+        handleFilterFilm={handleFilterFilm}
+        handleFilterYear={handleFilterYear}
+        getYears={getYears()}
+        />
         <FilmList 
-        films={filterFilm}
+        films={allFilters}
         />
       </main>
     </>

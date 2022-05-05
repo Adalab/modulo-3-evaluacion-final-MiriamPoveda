@@ -1,4 +1,5 @@
 import FilterFilm from './FilterFilm';
+import FilterYear from './FilterYear';
 
 function Filters(props) {
 
@@ -6,6 +7,9 @@ function Filters(props) {
     <section>
       <form>
           <FilterFilm handleFilterFilm={props.handleFilterFilm}/>
+          <FilterYear 
+          getYears={props.getYears}
+          handleFilterYear={props.handleFilterYear}/>
       </form>
     </section>
   );
