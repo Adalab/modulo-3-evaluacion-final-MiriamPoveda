@@ -7,13 +7,14 @@ const get = (key, defaultData) => {
     }
   };
   
+  /* Guardar datos en LocalStorage */
   const set = (key, value) => {
     localStorage.setItem(key, JSON.stringify(value));
   };
   
-  const LS = {
+  const objToExport = {
     get: get,
     set: set,
   };
   
-  export default LS;
+  export default objToExport;

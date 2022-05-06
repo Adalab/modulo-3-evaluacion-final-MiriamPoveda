@@ -2,13 +2,17 @@
 import {useState, useEffect} from 'react';
 import {Routes, Route} from 'react-router-dom';
 import {matchPath, useLocation} from 'react-router-dom';
+
 // Services //
 import getApiData from '../services/Api';
 import LS from '../services/localStorage';
+
 // Components //
 import MovieSceneList from './Lists/MovieSceneList';
 import Filters from './Filters/Filters';
 import MovieSceneDetail from './Lists/MovieSceneDetail';
+import IncorrectPage from './Notices/IncorrectPage';
+
 // Styles //
 import '../styles/App.scss';
 
@@ -17,32 +21,34 @@ function App() {
   // Variables //
 
   /* Datos de la API */
-  const [dataFilms, setDataFilms] = useState(LS.get('films', []));
+  const [dataFilms, setDataFilms] = useState(LS.get('dataFilms', []));
   /* Filtrar por película */
-  const [filteredFilm, setFilteredFilm] = useState(LS.get('filteredFilms', ''));
+  const [filteredFilm, setFilteredFilm] = useState('');
   /* Filtrar por año */
-  const [filteredYear, setFilteredYear] = useState(LS.get('filteredYears', ''));
+  const [filteredYear, setFilteredYear] = useState('');
 
   // useEffect //
 
   /* Fetch */
   useEffect(() => {
+    if (dataFilms.length === 0) {
     getApiData().then((dataFromApi) => {
       setDataFilms(dataFromApi);
     });
+  }
   }, []);
-
+  
   /* LocalStorage */
   useEffect(() => {
-    LS.set('films', dataFilms);
-    LS.set('filteredFilms', filteredFilm);
-    LS.set('filteredYears', filteredYear);
-  }, [dataFilms, filteredFilm, filteredYear]);
+    LS.set('dataFilms', dataFilms);
+  }, [dataFilms]);
 
   // Funciones //
 
   /* Filtro global */
   const allFilters = dataFilms
+  /* Ordenar */
+  .sort((a, z) => a.name.localeCompare(z.name))
   /* Filtro por película */
   .filter((eachFilm) => {
     return eachFilm.name.toLowerCase().includes(filteredFilm.toLowerCase());
@@ -69,6 +75,8 @@ function App() {
     const uniqueYears = allYears.filter((item, index) => { 
       return allYears.indexOf(item) === index;
     });
+    /* Ordenar */
+    uniqueYears.sort();
     return uniqueYears;
   }
 
@@ -116,6 +124,7 @@ function App() {
         handleRecharge={handleRecharge}
         handleFilterFilm={handleFilterFilm}
         handleFilterYear={handleFilterYear}
+        films={allFilters}
         getYears={getYears()}
         />
         {incorrectName()}
@@ -130,6 +139,11 @@ function App() {
             element={<MovieSceneDetail 
             oneFilm={movieFound}
             />}
+          />
+          <Route 
+          path="*"
+          element={
+          <IncorrectPage />}
           />
         </Routes>
         
