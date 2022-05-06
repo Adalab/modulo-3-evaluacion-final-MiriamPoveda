@@ -1,9 +1,9 @@
 import MovieSceneItem from './MovieSceneItem';
 
 function MovieSceneList(props) {
-  const allFilms = props.films.map((oneFilm, index) => {
+  const allFilms = props.films.map((oneFilm) => {
     return (
-      <li key={index}>
+      <li key={oneFilm.id}>
         <MovieSceneItem oneFilm={oneFilm}/>
       </li>
     );

@@ -4,6 +4,7 @@ import {Routes, Route} from 'react-router-dom';
 import {matchPath, useLocation} from 'react-router-dom';
 // Services //
 import getApiData from '../services/Api';
+import LS from '../services/localStorage';
 // Components //
 import MovieSceneList from './Lists/MovieSceneList';
 import Filters from './Filters/Filters';
@@ -16,11 +17,11 @@ function App() {
   // Variables //
 
   /* Datos de la API */
-  const [dataFilms, setDataFilms] = useState([]);
+  const [dataFilms, setDataFilms] = useState(LS.get('films', []));
   /* Filtrar por película */
-  const [filteredFilm, setFilteredFilm] = useState('');
+  const [filteredFilm, setFilteredFilm] = useState(LS.get('filteredFilms', ''));
   /* Filtrar por año */
-  const [filteredYear, setFilteredYear] = useState('');
+  const [filteredYear, setFilteredYear] = useState(LS.get('filteredYears', ''));
 
   // useEffect //
 
@@ -30,6 +31,13 @@ function App() {
       setDataFilms(dataFromApi);
     });
   }, []);
+
+  /* LocalStorage */
+  useEffect(() => {
+    LS.set('films', dataFilms);
+    LS.set('filteredFilms', filteredFilm);
+    LS.set('filteredYears', filteredYear);
+  }, [dataFilms, filteredFilm, filteredYear]);
 
   // Funciones //
 
