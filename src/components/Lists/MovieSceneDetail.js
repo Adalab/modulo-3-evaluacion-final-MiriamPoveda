@@ -21,7 +21,8 @@ function MovieSceneDetail(props) {
           <p>{props.oneFilm.name}</p>
           <p>{props.oneFilm.quote}</p>
           <p>Director: {props.oneFilm.director}</p>
-          <a href={props.oneFilm.audio} target="blank">¡Listen to the quote!</a>
+          <a href={props.oneFilm.audio} target="blank"
+          title="Click to listen">¡Listen to the quote!</a>
           </section>
     );
   }

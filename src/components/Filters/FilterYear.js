@@ -4,8 +4,18 @@ function FilterYear(props) {
         props.handleFilterYear(ev.target.value);
     }
 
+    const getYears = () => {
+        const allYears = props.dataFilms.map((oneYear) => oneYear.year);
+        const uniqueYears = allYears.filter((item, index) => { 
+          return allYears.indexOf(item) === index;
+        });
+        /* Ordenar */
+        uniqueYears.sort();
+        return uniqueYears;
+      }
+
     const renderYears = () => {
-        return props.getYears.map((oneYear, index) => {
+        return getYears().map((oneYear, index) => {
             return (
             <option key={index} value={oneYear}>
                 {oneYear}
@@ -17,7 +27,7 @@ function FilterYear(props) {
     return (
       <>
         <label htmlFor="searchYear">Year</label>
-        <select name="searchYear" onChange={handleChange}>
+        <select name="searchYear" value={props.filteredYear} onChange={handleChange}>
             <option value="">All years</option>
             {renderYears()}
         </select>

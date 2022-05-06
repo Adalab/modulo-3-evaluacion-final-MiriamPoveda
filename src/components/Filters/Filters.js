@@ -1,5 +1,6 @@
 import FilterMovie from './FilterMovie';
 import FilterYear from './FilterYear';
+import Reset from '../Notices/Reset';
 
 function Filters(props) {
 
@@ -8,8 +9,10 @@ function Filters(props) {
       <form onSubmit={props.handleRecharge}>
           <FilterMovie handleFilterFilm={props.handleFilterFilm} filteredFilm={props.filteredFilm}/>
           <FilterYear 
-          getYears={props.getYears}
-          handleFilterYear={props.handleFilterYear}/>
+          dataFilms={props.dataFilms}
+          handleFilterYear={props.handleFilterYear}
+          filteredYear={props.filteredYear}/>
+          <Reset handleReset={props.handleReset}/>
       </form>
     </section>
   );

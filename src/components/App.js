@@ -12,6 +12,7 @@ import MovieSceneList from './Lists/MovieSceneList';
 import Filters from './Filters/Filters';
 import MovieSceneDetail from './Lists/MovieSceneDetail';
 import IncorrectPage from './Notices/IncorrectPage';
+import IncorrectName from './Notices/IncorrectName';
 
 // Styles //
 import '../styles/App.scss';
@@ -23,9 +24,9 @@ function App() {
   /* Datos de la API */
   const [dataFilms, setDataFilms] = useState(LS.get('dataFilms', []));
   /* Filtrar por película */
-  const [filteredFilm, setFilteredFilm] = useState('');
+  const [filteredFilm, setFilteredFilm] = useState(LS.get('filteredFilm', ''));
   /* Filtrar por año */
-  const [filteredYear, setFilteredYear] = useState('');
+  const [filteredYear, setFilteredYear] = useState(LS.get('filteredYear', ''));
 
   // useEffect //
 
@@ -41,11 +42,14 @@ function App() {
   /* LocalStorage */
   useEffect(() => {
     LS.set('dataFilms', dataFilms);
-  }, [dataFilms]);
+    LS.set('filteredFilm', filteredFilm);
+    LS.set('filteredYear', filteredYear);
+  }, [dataFilms, filteredFilm, filteredYear]);
 
   // Funciones //
 
-  /* Filtro global */
+  // Filtros //
+
   const allFilters = dataFilms
   /* Ordenar */
   .sort((a, z) => a.name.localeCompare(z.name))
@@ -59,25 +63,16 @@ function App() {
     : parseInt(eachYear.year) === parseInt(filteredYear);
   })
 
-  /* Herramienta para filtrar película */
+  // Manejadoras //
+
+  /* Filtrar por película */
   const handleFilterFilm = (value) => {
     setFilteredFilm(value);
   }
 
-  /* Herramienta para filtrar año */
+  /* Filtrar por año */
   const handleFilterYear = (value) => {
       setFilteredYear(value);
-  }
-
-   /* Evitar repetir años */
-   const getYears = () => {
-    const allYears = dataFilms.map((oneYear) => oneYear.year);
-    const uniqueYears = allYears.filter((item, index) => { 
-      return allYears.indexOf(item) === index;
-    });
-    /* Ordenar */
-    uniqueYears.sort();
-    return uniqueYears;
   }
 
   /* Prevenir la recarga */
@@ -85,18 +80,11 @@ function App() {
     ev.preventDefault();
   };
 
-  /* Mensaje para película incorrecta */
-  const incorrectName = () => {
-    if (filteredFilm !== '' && allFilters.length === 0) {
-      return (
-        <div>
-            <p>
-              Wow! Owen isn't familiar with the film "{filteredFilm}". Try another name.
-            </p>
-        </div>
-      );
-    } 
-  };
+  /* Limpiar contenido */
+  const handleReset = () => {
+    setFilteredFilm('');
+    setFilteredYear('');
+  }
 
   // matchPath + useLocation //
 
@@ -122,12 +110,17 @@ function App() {
             <>
               <Filters
         handleRecharge={handleRecharge}
+        handleReset={handleReset}
         handleFilterFilm={handleFilterFilm}
         handleFilterYear={handleFilterYear}
         filteredFilm={filteredFilm}
-        getYears={getYears()}
+        filteredYear={filteredYear}
+        dataFilms={dataFilms}
         />
-        {incorrectName()}
+        <IncorrectName 
+        filteredFilm={filteredFilm}
+        allFilters={allFilters}
+        />
         <MovieSceneList
         films={allFilters}
         />
