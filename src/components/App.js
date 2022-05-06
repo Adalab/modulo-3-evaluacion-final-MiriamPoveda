@@ -124,7 +124,7 @@ function App() {
         handleRecharge={handleRecharge}
         handleFilterFilm={handleFilterFilm}
         handleFilterYear={handleFilterYear}
-        films={allFilters}
+        filteredFilm={filteredFilm}
         getYears={getYears()}
         />
         {incorrectName()}
