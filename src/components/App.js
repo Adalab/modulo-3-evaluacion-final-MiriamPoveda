@@ -9,16 +9,13 @@ import LS from "../services/localStorage";
 
 // Components //
 
-/* Filters */
-import Filters from "./Filters/Filters";
 /* Global */
 import Header from "./Global/Header";
+import Main from "./Global/Main";
 /* Lists */
-import MovieSceneList from "./Lists/MovieSceneList";
 import MovieSceneDetail from "./Lists/MovieSceneDetail";
 /* Notices */
 import IncorrectPage from "./Notices/IncorrectPage";
-import IncorrectName from "./Notices/IncorrectName";
 
 // Styles //
 import "../styles/App.scss";
@@ -103,44 +100,38 @@ function App() {
 
   return (
     <>
-      <div>
-        <Routes>
-          {/* Static route */}
-          <Route
-            path="/"
-            element={
-              <>
-                {/* ------ */}
-                <Header />
-                {/* ------ */}
-                <Filters
-                  rechargeParent={handleRecharge}
-                  resetParent={handleReset}
-                  handleFilmParent={handleFilterFilm}
-                  handleYearParent={handleFilterYear}
-                  filterFilmParent={filteredFilm}
-                  filterYearParent={filteredYear}
-                  dataFilms={dataFilms}
-                />
-                {/* ------ */}
-                <IncorrectName
-                  filterFilmParent={filteredFilm}
-                  allFilters={allFilters}
-                />
-                {/* ------ */}
-                <MovieSceneList allFilters={allFilters} />
-              </>
-            }
-          />
-          {/* Variable routes */}
-          <Route
-            path="/movie/:movieId"
-            element={<MovieSceneDetail movieFound={movieFound} />}
-          />
-          {/* ------ */}
-          <Route path="*" element={<IncorrectPage />} />
-        </Routes>
-      </div>
+      <Routes>
+        {/* Static route */}
+        <Route
+          path="/"
+          element={
+            <>
+              {/* ------ */}
+              <Header />
+              {/* ------ */}
+              <Main
+                /* Filters */
+                rechargeParent={handleRecharge}
+                resetParent={handleReset}
+                handleFilmParent={handleFilterFilm}
+                handleYearParent={handleFilterYear}
+                filterFilmParent={filteredFilm}
+                filterYearParent={filteredYear}
+                dataFilms={dataFilms}
+                /* IncorrectName + MovieSceneList */
+                allFilters={allFilters}
+              />
+            </>
+          }
+        />
+        {/* Variable routes */}
+        <Route
+          path="/movie/:movieId"
+          element={<MovieSceneDetail movieFound={movieFound} />}
+        />
+        {/* ------ */}
+        <Route path="*" element={<IncorrectPage />} />
+      </Routes>
     </>
   );
 }

@@ -1,5 +1,7 @@
 // Components //
 import MovieSceneItem from "./MovieSceneItem";
+// Styles //
+import "../../styles/Lists/MovieSceneList.scss";
 
 function MovieSceneList(props) {
   // Función para pintar //
@@ -17,10 +19,6 @@ function MovieSceneList(props) {
 
   /* PINTAR - Cogemos la función para pintar los datos en el navegador */
 
-  return (
-    <section>
-      <ul>{allFilms}</ul>
-    </section>
-  );
+  return <ul>{allFilms}</ul>;
 }
 export default MovieSceneList;

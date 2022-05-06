@@ -1,5 +1,7 @@
 // Hooks //
 import { Link } from "react-router-dom";
+// Styles //
+import "../../styles/Notices/IncorrectPage.scss";
 
 function IncorrectPage() {
   // HTML //

@@ -1,7 +1,10 @@
+// Styles //
+import "../../styles/Notices/Reset.scss";
+
 function Reset(props) {
   // Función manejadora en App //
   const handleClick = () => {
-    props.resetChild();
+    props.resetGrandChild();
   };
 
   // HTML //

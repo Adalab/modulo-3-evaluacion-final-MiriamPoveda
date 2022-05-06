@@ -1,3 +1,6 @@
+// Styles //
+import "../../styles/Global/Header.scss";
+
 function Header() {
   return (
     <header>

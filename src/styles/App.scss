@@ -1,3 +1,14 @@
-.filmPoster {
-    width: 25%;
-}
+// Global //
+@import './Global/Header';
+@import './Global/Main';
+// Filters //
+@import './Filters/FilterMovie';
+@import './Filters/FilterYear';
+// Lists //
+@import './Lists/MovieSceneDetail';
+@import './Lists/MovieSceneItem';
+@import './Lists/MovieSceneList';
+// Notices //
+@import './Notices/IncorrectName';
+@import './Notices/IncorrectPage';
+@import './Notices/Reset';

@@ -2,6 +2,8 @@
 import { Link } from "react-router-dom";
 // Components //
 import IncorrectPage from "../Notices/IncorrectPage";
+// Styles //
+import "../../styles/Lists/MovieSceneDetail.scss";
 
 function MovieSceneDetail(props) {
   // Condicional //

@@ -1,8 +1,11 @@
+// Styles //
+import "../../styles/Filters/FilterMovie.scss";
+
 function FilterMovie(props) {
   // Función manejadora en App //
 
   const handleChange = (ev) => {
-    props.handleFilmChild(ev.target.value);
+    props.handleFilmGrandChild(ev.target.value);
   };
 
   // HTML //
@@ -18,7 +21,7 @@ function FilterMovie(props) {
         type="text"
         placeholder="Write the name of the film"
         name="searchFilm"
-        value={props.filterFilmChild}
+        value={props.filterFilmGrandChild}
         onChange={handleChange}
       />
     </>

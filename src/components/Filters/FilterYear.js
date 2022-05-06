@@ -1,10 +1,13 @@
+// Styles //
+import "../../styles/Filters/FilterYear.scss";
+
 function FilterYear(props) {
   // Funciones //
 
   // Función manejadora en App //
 
   const handleChange = (ev) => {
-    props.handleYearChild(ev.target.value);
+    props.handleYearGrandChild(ev.target.value);
   };
 
   // Descartar años repetidos //
@@ -48,7 +51,7 @@ function FilterYear(props) {
       <label htmlFor="searchYear">Year</label>
       <select
         name="searchYear"
-        value={props.filterYearChild}
+        value={props.filterYearGrandChild}
         onChange={handleChange}
       >
         <option value="">All years</option>
