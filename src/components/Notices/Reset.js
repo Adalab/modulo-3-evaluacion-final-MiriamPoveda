@@ -1,14 +1,14 @@
 function Reset(props) {
+  // Función manejadora en App //
+  const handleClick = () => {
+    props.resetChild();
+  };
 
-    const handleClick = () => {
-      props.handleReset();
-    };
+  // HTML //
 
-    return (
-      <button onClick={handleClick}>
-        Reset
-      </button>
-    );
-  }
-  
-  export default Reset;
+  /* EVENTO - onClick y función manejadora para comunicar con la madre */
+
+  return <button onClick={handleClick}>Reset</button>;
+}
+
+export default Reset;
