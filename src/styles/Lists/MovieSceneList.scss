@@ -1,0 +1,18 @@
+.movieList {
+
+    display: grid;
+    justify-items: center;
+    text-align: center;
+    list-style: none;
+    background-color: #e9d5da;
+    padding: 10px 0;
+
+    &__movieItem {
+        background-color: #9d535363;
+        border: 3px solid #9d5353;
+        margin: 20px 30px;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+    }
+}

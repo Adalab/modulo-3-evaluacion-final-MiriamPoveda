@@ -9,7 +9,7 @@ function MovieSceneList(props) {
   /* Transformamos para pintar un LI por cada tarjeta y pasamos por PROPS la variable que contiene la API */
   const allFilms = props.allFilters.map((oneFilm) => {
     return (
-      <li key={oneFilm.id}>
+      <li className="movieList__movieItem" key={oneFilm.id}>
         <MovieSceneItem oneFilm={oneFilm} />
       </li>
     );
@@ -19,6 +19,6 @@ function MovieSceneList(props) {
 
   /* PINTAR - Cogemos la función para pintar los datos en el navegador */
 
-  return <ul>{allFilms}</ul>;
+  return <ul className="movieList">{allFilms}</ul>;
 }
 export default MovieSceneList;

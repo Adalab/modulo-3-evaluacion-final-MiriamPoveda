@@ -11,7 +11,11 @@ function Reset(props) {
 
   /* EVENTO - onClick y función manejadora para comunicar con la madre */
 
-  return <button onClick={handleClick}>Reset</button>;
+  return (
+    <button className="resetButton" onClick={handleClick}>
+      Reset
+    </button>
+  );
 }
 
 export default Reset;

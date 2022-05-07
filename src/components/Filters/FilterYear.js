@@ -31,7 +31,11 @@ function FilterYear(props) {
     /* Retorno la función con los años filtrados y transformo para pintar */
     return getYears().map((oneYear, index) => {
       return (
-        <option key={index} value={oneYear}>
+        <option
+          className="selectYear__selectOptions"
+          key={index}
+          value={oneYear}
+        >
           {oneYear}
         </option>
       );
@@ -48,13 +52,18 @@ function FilterYear(props) {
 
   return (
     <>
-      <label htmlFor="searchYear">Year</label>
+      <label className="labelYear" htmlFor="searchYear">
+        Year
+      </label>
       <select
+        className="selectYear"
         name="searchYear"
         value={props.filterYearGrandChild}
         onChange={handleChange}
       >
-        <option value="">All years</option>
+        <option className="selectYear__selectOptions" value="">
+          All years
+        </option>
         {renderYears()}
       </select>
     </>

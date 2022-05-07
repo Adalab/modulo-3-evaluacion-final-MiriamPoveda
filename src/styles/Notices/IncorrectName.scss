@@ -1,0 +1,29 @@
+.boxName {
+    background-color: #e9d5da;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    &__textName {
+        padding: 0 20px;
+    }
+
+    &__imageName {
+        margin: 20px 0;
+        width: 80%;
+        border: 3px ridge #9d5353;
+    }
+
+    &__textMessage {
+        margin-bottom: 20px;
+        font-weight: 900;
+        color: #9d5353;
+    }
+}
+
+.wordName {
+    font-weight: 900;
+    color: #9d5353;
+    text-decoration: underline;
+}

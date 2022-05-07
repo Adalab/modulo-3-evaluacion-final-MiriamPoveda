@@ -1,3 +1,5 @@
+// Image //
+import magicWord from "../../images/IncorrectName.gif";
 // Styles //
 import "../../styles/Notices/IncorrectName.scss";
 
@@ -9,10 +11,19 @@ function IncorrectName(props) {
     /* PROPS - Pasamos la variable que contiene lo que ha escrito la usuaria */
 
     return (
-      <div>
-        <p>
-          Wow! Owen isn't familiar with the film "{props.filterFilmParent}". Try
+      <div className="boxName">
+        <p className="boxName__textName">
+          Wow! Owen isn't familiar with the film {""}
+          <span className="wordName">{props.filterFilmParent}</span>. Try
           another name.
+        </p>
+        <img
+          className="boxName__imageName"
+          alt="You didn't say the magic word"
+          src={magicWord}
+        />
+        <p className="boxName__textMessage">
+          Oh, oh, oh! You didn't say the magic word!
         </p>
       </div>
     );

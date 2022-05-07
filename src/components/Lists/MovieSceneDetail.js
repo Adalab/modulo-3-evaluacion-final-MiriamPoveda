@@ -2,6 +2,8 @@
 import { Link } from "react-router-dom";
 // Components //
 import IncorrectPage from "../Notices/IncorrectPage";
+// Image //
+import Arrow from "../../images/arrow.png";
 // Styles //
 import "../../styles/Lists/MovieSceneDetail.scss";
 
@@ -20,21 +22,29 @@ function MovieSceneDetail(props) {
   /* LINK - Para poder regresar de la ruta de este componente a la página del componente principal */
 
   return (
-    <section key={props.movieFound.id}>
+    <section className="sectionDetail" key={props.movieFound.id}>
       {/* ------ */}
-      <div>
-        <Link to={"/"}>Back</Link>
-      </div>
+      <Link to={"/"} title="Click to return">
+        <img className="arrow" alt="Arrow" src={Arrow} />
+      </Link>
       {/* ------ */}
       <img
-        className="filmPoster"
+        className="sectionDetail__posterDetail"
         alt={props.movieFound.name}
         src={props.movieFound.poster}
       />
-      <p>{props.movieFound.name}</p>
-      <p>{props.movieFound.quote}</p>
-      <p>Director: {props.movieFound.director}</p>
-      <a href={props.movieFound.audio} target="blank" title="Click to listen">
+      <p className="sectionDetail__titleDetail">{props.movieFound.name}</p>
+      <p className="sectionDetail__quoteDetail">{props.movieFound.quote}</p>
+      <p className="sectionDetail__directorDetail">
+        Director:{" "}
+        <span className="directorName">{props.movieFound.director}</span>
+      </p>
+      <a
+        className="linkDetail"
+        href={props.movieFound.audio}
+        target="blank"
+        title="Click to listen"
+      >
         ¡Listen to the quote!
       </a>
     </section>

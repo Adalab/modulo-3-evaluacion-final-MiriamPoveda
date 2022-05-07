@@ -16,6 +16,7 @@ import Main from "./Global/Main";
 import MovieSceneDetail from "./Lists/MovieSceneDetail";
 /* Notices */
 import IncorrectPage from "./Notices/IncorrectPage";
+import IncorrectName from "./Notices/IncorrectName";
 
 // Styles //
 import "../styles/App.scss";
@@ -122,7 +123,11 @@ function App() {
                 filterFilmParent={filteredFilm}
                 filterYearParent={filteredYear}
                 dataFilms={dataFilms}
-                /* IncorrectName + MovieSceneList */
+                /* MovieSceneList */
+                allFilters={allFilters}
+              />
+              <IncorrectName
+                filterFilmParent={filteredFilm}
                 allFilters={allFilters}
               />
             </>

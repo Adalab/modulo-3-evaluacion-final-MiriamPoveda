@@ -16,8 +16,11 @@ function FilterMovie(props) {
 
   return (
     <>
-      <label htmlFor="searchFilm">Movie</label>
+      <label className="labelMovie" htmlFor="searchFilm">
+        Movie
+      </label>
       <input
+        className="inputMovie"
         type="text"
         placeholder="Write the name of the film"
         name="searchFilm"

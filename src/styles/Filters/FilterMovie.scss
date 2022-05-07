@@ -1,0 +1,23 @@
+.labelMovie {
+    color: #000000;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.inputMovie {
+    width: 70%;
+    color: #9d5353;
+    margin-bottom: 7px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ede6db;
+    background-color: transparent;
+}
+
+.inputMovie:focus {
+    background-color: black;
+}
+
+.inputMovie::placeholder {
+    color: #ede6db;
+}

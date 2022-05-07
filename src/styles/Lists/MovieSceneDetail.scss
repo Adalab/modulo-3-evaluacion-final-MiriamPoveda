@@ -1,0 +1,51 @@
+.sectionDetail {
+  height: 100vh;
+  background-color: #e9d5da;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  line-height: 20px;
+
+  &__posterDetail {
+    width: 60%;
+    padding: 20px 0;
+  }
+
+  &__titleDetail {
+    color: #a58147;
+    font-weight: 700;
+    line-height: 20px;
+  }
+  &__quoteDetail {
+    color: #9d535363;
+  }
+  &__directorDetail {
+    color: #a58147;
+    font-weight: 700;
+    padding-bottom: 10px;
+  }
+}
+
+.arrow {
+  width: 20%;
+}
+
+.arrow:hover {
+  transform: scale(1.5);
+}
+
+.directorName {
+  color: #9d535363;
+}
+
+.linkDetail {
+  text-decoration: none;
+  color: #9d5353;
+  font-weight: 600;
+}
+
+.linkDetail:hover {
+  text-decoration: underline;
+}

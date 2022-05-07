@@ -1,3 +1,36 @@
-.filmPoster {
-    width: 25%;
+.posterItem {
+  width: 60%;
+  border: 3px double #ede6db;
+}
+
+.titleItem {
+  color: #a58147;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.quoteItem {
+  color: #ede6db;
+  margin-bottom: 20px;
+}
+
+.linkItem {
+  text-decoration: none;
+  color: #ede6db;
+
+  &__detailsItem {
+    background-color: #a58147;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}
+
+.linkItem:hover {
+  color: #9d5353;
+}
+
+.linkItem__detailsItem:hover {
+  border: 2px dashed #9d5353;
+  background-color: transparent;
 }

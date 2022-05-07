@@ -11,17 +11,20 @@ function MovieSceneItem(props) {
   /* LINK - Para poder hacer click en una tarjeta y acudir a la ruta de dicha tarjeta (a través de su ID) */
 
   return (
-    <Link to={`/movie/${props.oneFilm.id}`}>
+    <>
       <img
-        className="filmPoster"
+        className="posterItem"
         alt={props.oneFilm.name}
         src={props.oneFilm.poster}
       />
-      <p>
+      <p className="titleItem">
         {props.oneFilm.name} - {props.oneFilm.year}
       </p>
-      <p>{props.oneFilm.quote}</p>
-    </Link>
+      <p className="quoteItem">{props.oneFilm.quote}</p>
+      <Link className="linkItem" to={`/movie/${props.oneFilm.id}`}>
+        <span className="linkItem__detailsItem">~ Details ~</span>
+      </Link>
+    </>
   );
 }
 export default MovieSceneItem;

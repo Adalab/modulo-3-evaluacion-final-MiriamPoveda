@@ -1,6 +1,5 @@
 // Components //
 import Filters from "../Filters/Filters";
-import IncorrectName from "../Notices/IncorrectName";
 import MovieSceneList from "../Lists/MovieSceneList";
 // Styles //
 import "../../styles/Global/Main.scss";
@@ -11,9 +10,12 @@ function Main(props) {
   /* PROPS - Pasamos la función que maneja la recarga por defecto del formulario y todas las funciones/variables necesarias */
 
   return (
-    <>
-      <section>
-        <form onSubmit={props.rechargeParent}>
+    <main>
+      <section className="sectionFilters">
+        <form
+          className="sectionFilters__formFilters"
+          onSubmit={props.rechargeParent}
+        >
           <Filters
             resetChild={props.resetParent}
             handleFilmChild={props.handleFilmParent}
@@ -22,16 +24,12 @@ function Main(props) {
             filterYearChild={props.filterYearParent}
             dataFilms={props.dataFilms}
           />
-          <IncorrectName
-            filterFilmChild={props.filterFilmParent}
-            allFilters={props.allFilters}
-          />
         </form>
       </section>
       <section>
         <MovieSceneList allFilters={props.allFilters} />
       </section>
-    </>
+    </main>
   );
 }
 

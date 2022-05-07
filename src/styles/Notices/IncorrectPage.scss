@@ -1,0 +1,47 @@
+.boxPage {
+  background-color: #000000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 10%;
+  align-items: center;
+  text-align: center;
+
+  &__textPage {
+    padding: 0 15%;
+    color: #ede6db;
+  }
+
+  &__subtextPage {
+    padding-top: 5%;
+    color: #ede6db;
+  }
+
+  &__imagePage {
+    width: 80%;
+    padding: 20% 0;
+  }
+}
+
+.linkPage {
+  text-decoration: none;
+  font-weight: 600;
+
+  &__backPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #9d5353;
+    padding: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 150px;
+    color: #ede6db;
+    cursor: pointer;
+  }
+}
+
+.linkPage__backPage:hover {
+  transform: scale(1.5);
+}

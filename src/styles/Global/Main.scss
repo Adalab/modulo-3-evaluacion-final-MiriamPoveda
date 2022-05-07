@@ -1,0 +1,11 @@
+.sectionFilters {
+    background-color: #9d5353;
+    border: 2px solid #000000;
+
+    &__formFilters {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+}
