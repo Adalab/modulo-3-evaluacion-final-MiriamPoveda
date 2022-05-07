@@ -21,7 +21,11 @@ function MovieSceneItem(props) {
         {props.oneFilm.name} - {props.oneFilm.year}
       </p>
       <p className="quoteItem">{props.oneFilm.quote}</p>
-      <Link className="linkItem" to={`/movie/${props.oneFilm.id}`}>
+      <Link
+        className="linkItem"
+        to={`/movie/${props.oneFilm.id}`}
+        title="Access more details"
+      >
         <span className="linkItem__detailsItem">~ Details ~</span>
       </Link>
     </>
