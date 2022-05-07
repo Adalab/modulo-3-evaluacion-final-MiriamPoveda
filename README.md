@@ -2,6 +2,8 @@
 
 ## Evaluación final 📋
 
+<img src="https://i.ibb.co/GJbkMKT/header.png" alt="Owen Wilson's WOW"/>
+
 El ejercicio consiste en desarrollar una página web con el listado de las escenas de las películas donde el actor Owen Wilson ha dicho _wow_.
 
 Contando con los datos de la siguiente [API](https://owen-wilson-wow-api.herokuapp.com/), hay que realizarlo usando **React**.
