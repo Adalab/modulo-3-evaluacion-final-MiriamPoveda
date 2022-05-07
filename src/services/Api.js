@@ -1,6 +1,3 @@
-// Librería para generar ID aleatorios //
-import { v4 as uuidv4 } from "uuid";
-
 /* Instalamos la librería con _ npm install uuid _ */
 /* Realizamos el FETCH para poder traer los datos de la API */
 /* Transformamos los datos con MAP y cogemos los que se nos solicitan */
@@ -11,10 +8,10 @@ const getApiData = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      const dataClean = data.map((film) => {
+      const dataClean = data.map((film, index) => {
         return {
           /* Identificador */
-          id: uuidv4(),
+          id: index,
           /* Pintar al inicio */
           poster: film.poster,
           name: film.movie,

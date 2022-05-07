@@ -68,6 +68,7 @@ function App() {
   // Funciones manejadoras //
 
   /* Filtrar por película */
+
   const handleFilterFilm = (value) => {
     setFilteredFilm(value);
   };
@@ -92,9 +93,12 @@ function App() {
 
   const { pathname } = useLocation();
   const dataPath = matchPath("/movie/:movieId", pathname);
-
+  /* Ternario para que si la ruta es válida la pinte y, si no, nos devuelva null */
   const movieId = dataPath !== null ? dataPath.params.movieId : null;
-  const movieFound = dataFilms.find((oneMovie) => oneMovie.id === movieId);
+  /* Encontramos el ID (index) y parseamos */
+  const movieFound = dataFilms.find(
+    (oneMovie) => oneMovie.id === parseInt(movieId)
+  );
 
   // HTML //
 
