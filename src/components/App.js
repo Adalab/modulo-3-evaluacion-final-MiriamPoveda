@@ -20,6 +20,7 @@ import IncorrectName from "./Notices/IncorrectName";
 
 // Styles //
 import "../styles/App.scss";
+import "../styles/index.scss";
 
 function App() {
   // Variables //
